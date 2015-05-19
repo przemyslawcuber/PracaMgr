@@ -13,8 +13,29 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    readpcapfile.cpp \
+    kmean.cpp \
+    packet.cpp \
+    preparedata.cpp \
+    conversationgroup.cpp \
+    sourceipbehavior.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    readpcapfile.h \
+    kmean.h \
+    packet.h \
+    preparedata.h \
+    conversationgroup.h \
+    sourceipbehavior.h
 
 FORMS    += mainwindow.ui
+
+linux-g++ { # For Linux
+    LIBS += \
+       -lpcap\
+       -lboost_system\
+}
+
+DISTFILES += \
+    README.md
